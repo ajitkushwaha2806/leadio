@@ -3,6 +3,12 @@ import { backendPaymentService } from "@/services/backend/payment.service";
 import { capturePostHogLog } from "@/lib/posthog-logs";
 import { connectToDatabase } from "@/lib/mongodb";
 import SubscriptionOrder from "@/models/subscription-order.model";
+import {
+    sendMetaServerEvent,
+    extractClientIp,
+    extractUserAgent,
+    extractMetaCookies,
+} from "@/lib/meta-conversions-api";
 
 export async function POST(req) {
     try {
@@ -29,18 +35,50 @@ export async function POST(req) {
             return NextResponse.json({ success: false, error: "Invalid signature" }, { status: 400 });
         }
 
+        let updatedOrder = null;
         try {
             await connectToDatabase();
-            await SubscriptionOrder.findOneAndUpdate(
+            updatedOrder = await SubscriptionOrder.findOneAndUpdate(
                 { razorpayOrderId: razorpay_order_id },
                 {
                     status: "paid",
                     razorpayPaymentId: razorpay_payment_id,
                     razorpaySignature: razorpay_signature,
-                }
+                },
+                { new: true }
             );
         } catch (dbErr) {
             console.error("[MongoDB SubscriptionOrder Update Success]:", dbErr);
+        }
+
+        // Send Server-Side Purchase Event to Meta Conversions API
+        try {
+            const clientIp = extractClientIp(req);
+            const userAgent = extractUserAgent(req);
+            const { fbp, fbc } = extractMetaCookies(req);
+
+            await sendMetaServerEvent({
+                eventName: "Purchase",
+                eventId: `purchase_${razorpay_order_id}`,
+                eventSourceUrl: req.headers.get("referer") || "https://leadio.in/success",
+                userData: {
+                    fullName: updatedOrder?.fullName || "",
+                    phone: updatedOrder?.phone || "",
+                    email: updatedOrder?.email || "",
+                    clientIp,
+                    userAgent,
+                    fbp,
+                    fbc,
+                },
+                customData: {
+                    value: updatedOrder?.totalAmount || 499,
+                    currency: "INR",
+                    content_name: updatedOrder?.planTitle || "Leadio 1-Month Plan",
+                    order_id: razorpay_order_id,
+                },
+            });
+        } catch (capiErr) {
+            console.warn("[Meta CAPI Purchase Error]:", capiErr.message);
         }
 
         await capturePostHogLog("payment_signature_verified");

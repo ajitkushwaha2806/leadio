@@ -3,6 +3,12 @@ import mongoose from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
 import Enquiry from "@/models/enquiry.model";
 import { capturePostHogLog } from "@/lib/posthog-logs";
+import {
+    sendMetaServerEvent,
+    extractClientIp,
+    extractUserAgent,
+    extractMetaCookies,
+} from "@/lib/meta-conversions-api";
 
 export async function POST(req) {
     try {
@@ -50,6 +56,35 @@ export async function POST(req) {
         try {
             await capturePostHogLog("lead_submitted", { fullName, phone, email, plan });
         } catch {}
+
+        // Send Server-Side Lead Event to Meta Conversions API
+        try {
+            const clientIp = extractClientIp(req);
+            const userAgent = extractUserAgent(req);
+            const { fbp, fbc } = extractMetaCookies(req);
+
+            await sendMetaServerEvent({
+                eventName: "Lead",
+                eventId: bodyData.eventId || `lead_${savedEnquiry._id}`,
+                eventSourceUrl: req.headers.get("referer") || "https://leadio.in",
+                userData: {
+                    fullName,
+                    phone,
+                    email,
+                    clientIp,
+                    userAgent,
+                    fbp,
+                    fbc,
+                },
+                customData: {
+                    content_name: plan,
+                    value: 499,
+                    currency: "INR",
+                },
+            });
+        } catch (capiErr) {
+            console.warn("[Meta CAPI Lead Error]:", capiErr.message);
+        }
 
         return NextResponse.json({
             success: true,

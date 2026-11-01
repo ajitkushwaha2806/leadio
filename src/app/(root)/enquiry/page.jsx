@@ -1,8 +1,8 @@
 import EnquirySection from "@/components/pages/home/fragments/enquiry";
 
 export const metadata = {
-    title: "Get Onboarded | Submit Details | Leadio",
-    description: "Submit your details to launch your Leadio WhatsApp lead automation system in 24 hours.",
+    title: "Schedule Consultation | Leadio",
+    description: "Submit your details to get a personalized demo of Leadio WhatsApp to Google Sheets automation.",
 };
 
 export default function EnquiryPage() {

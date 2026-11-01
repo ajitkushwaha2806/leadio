@@ -49,10 +49,10 @@ export default function ContactCard({ contactData = [] }) {
                             better understand your lead syncing, or have questions, we’re listening. Reach out to our
                             support team anytime at{" "}
                             <a
-                                href="mailto:support@leadio.in"
+                                href="mailto:support@getrepeat.in"
                                 className="text-primary hover:text-primary/80 font-medium hover:underline underline-offset-2 transition-colors"
                             >
-                                support@leadio.in
+                                support@getrepeat.in
                             </a>
                             .
                         </p>

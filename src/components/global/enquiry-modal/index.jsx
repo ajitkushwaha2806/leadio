@@ -65,14 +65,17 @@ export default function EnquiryModal() {
         const cleanEmail = email.trim().toLowerCase();
 
         try {
-            // Track Meta Pixel Lead capture event
+            const leadEventId = `lead_${Date.now()}_${cleanPhone.slice(-4)}`;
+
+            // Track Meta Pixel Lead capture event with deduplication eventId
             trackLead({
                 content_name: "Leadio 1-Month Plan",
                 value: 499,
                 currency: "INR",
+                eventId: leadEventId,
             });
 
-            // 1. Save lead details in MongoDB first
+            // 1. Save lead details in MongoDB first (also triggers Server-Side Conversions API)
             try {
                 await fetch("/api/enquiry", {
                     method: "POST",
@@ -82,17 +85,23 @@ export default function EnquiryModal() {
                         phone: cleanPhone,
                         email: cleanEmail,
                         plan: "Leadio 1-Month Plan (₹499)",
+                        eventId: leadEventId,
                     }),
                 });
             } catch (leadErr) {
                 console.warn("Enquiry save error:", leadErr);
             }
 
-            // Track Meta Pixel InitiateCheckout event
+            // Track Meta Pixel & CAPI InitiateCheckout event with user parameters
             trackInitiateCheckout({
                 content_name: "Leadio 1-Month Plan",
                 value: 499,
                 currency: "INR",
+                userData: {
+                    fullName: cleanName,
+                    phone: cleanPhone,
+                    email: cleanEmail,
+                },
             });
 
             // 2. Open Razorpay checkout immediately!

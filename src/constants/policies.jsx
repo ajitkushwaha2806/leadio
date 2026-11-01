@@ -1,12 +1,12 @@
 export const COMPANY_INFO = {
     name: "Leadio",
     emails: {
-        support: "support@leadio.in",
-        legal: "legal@leadio.in",
-        billing: "billing@leadio.in",
-        sales: "sales@leadio.in",
-        partners: "partners@leadio.in",
-        privacy: "privacy@leadio.in"
+        support: "support@getrepeat.in",
+        legal: "support@getrepeat.in",
+        billing: "support@getrepeat.in",
+        sales: "support@getrepeat.in",
+        partners: "support@getrepeat.in",
+        privacy: "support@getrepeat.in"
     }
 };
 
@@ -42,7 +42,7 @@ export const SHIPPING_POLICY_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             ),
-            content: `Currently, we only ship physical materials within India. However, international restaurants can still subscribe to our digital-only plans to generate their own QR codes and use our software suite without any geographical restrictions.`,
+            content: `Leadio is a 100% digital SaaS product. Businesses and sales teams globally can subscribe to our Chrome extension and software suite without any geographical restrictions.`,
         },
         {
             title: "Order Tracking",
@@ -95,7 +95,7 @@ export const DISCLAIMER_POLICY_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
             ),
-            content: `Any business results, revenue increases, or customer retention metrics mentioned on our site are illustrative estimates or past results of specific clients. ${COMPANY_INFO.name} does not guarantee that you will experience the exact same results. Your success depends on your individual effort, restaurant location, menu quality, and market conditions.`,
+            content: `Any business results, lead volume, or sales conversion metrics mentioned on our site are illustrative estimates or past results of specific clients. ${COMPANY_INFO.name} does not guarantee that you will experience the exact same results. Your success depends on your individual effort, outreach strategy, lead quality, and market conditions.`,
         },
         {
             title: "External Links",
@@ -210,7 +210,7 @@ export const RETURN_POLICY_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
             ),
-            content: `Physical materials (such as custom QR code table tents and NFC tags) are printed on-demand for your specific restaurant. Because of this customization, physical items are final sale and cannot be returned or refunded unless they arrive damaged or defective.`,
+            content: `Leadio is delivered as a 100% digital software subscription with instant online access. No physical materials or hardware are shipped.`,
         },
         {
             title: "Damaged or Defective Items",
@@ -317,7 +317,7 @@ export const PRIVACY_POLICY_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
             ),
-            content: `We collect information that you provide directly to us when you register for an account, update your profile, or use our services. This includes personal information such as your name, email address, phone number, and restaurant details. We also automatically collect certain information about your device and how you interact with our platform.`,
+            content: `We collect information that you provide directly to us when you register for an account, update your profile, or use our services. This includes personal information such as your name, email address, phone number, and business details. We also automatically collect certain information about your device and how you interact with our platform.`,
         },
         {
             title: "Data Usage",
@@ -325,7 +325,7 @@ export const PRIVACY_POLICY_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
             ),
-            content: `We use the information we collect to provide, maintain, and improve our services, to process transactions, to send you related information, and to communicate with you. Your data helps us personalize your experience and provide relevant insights into your restaurant's performance.`,
+            content: `We use the information we collect to provide, maintain, and improve our services, to process transactions, to send you related information, and to communicate with you. Your data helps us personalize your experience and provide relevant insights into your lead capture performance.`,
         },
         {
             title: "Data Sharing",
@@ -378,7 +378,7 @@ export const CONTACT_PAGE_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
             ),
-            content: `Experiencing an issue with your dashboard or need help setting up your QR codes? Our support team is available Monday through Friday from 9 AM to 6 PM IST. Email us at ${COMPANY_INFO.emails.support} and we'll get back to you within 24 hours.`,
+            content: `Experiencing an issue or need help setting up your Leadio Chrome extension and Google Sheets sync? Our support team is available Monday through Friday from 9 AM to 6 PM IST. Email us at ${COMPANY_INFO.emails.support} and we'll get back to you within 24 hours.`,
         },
         {
             title: "Sales Inquiries",
@@ -386,7 +386,7 @@ export const CONTACT_PAGE_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             ),
-            content: `Want to learn more about how ${COMPANY_INFO.name} can increase your restaurant's order volume and table turnover? Drop our sales team a line at ${COMPANY_INFO.emails.sales} to schedule a free demo and consultation.`,
+            content: `Want to learn more about how ${COMPANY_INFO.name} can streamline your WhatsApp lead capture into Google Sheets? Drop our sales team a line at ${COMPANY_INFO.emails.sales} to schedule a free demo.`,
         },
         {
             title: "Partnerships",
@@ -394,7 +394,7 @@ export const CONTACT_PAGE_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             ),
-            content: `We're always looking for POS providers, marketing agencies, and food-tech companies to partner with. If you're interested in an integration or partnership, please reach out to ${COMPANY_INFO.emails.partners}.`,
+            content: `We're always looking for CRM providers, marketing agencies, and sales software companies to partner with. If you're interested in an integration or partnership, please reach out to ${COMPANY_INFO.emails.partners}.`,
         },
         {
             title: "Office Location",
@@ -402,12 +402,12 @@ export const CONTACT_PAGE_DATA = {
             icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             ),
-            content: `While our team works primarily remotely to support restaurants nationwide, our headquarters is located in India. For any physical mail or formal correspondence, please email us first to receive our official mailing address.`,
+            content: `While our team works primarily remotely to support businesses nationwide, our headquarters is located in India. For any physical mail or formal correspondence, please email us first to receive our official mailing address.`,
         }
     ],
     contactData: {
         title: "Ready to get started?",
-        description: `Join hundreds of other restaurants using ${COMPANY_INFO.name} today.`,
+        description: `Join hundreds of other businesses and sales teams using ${COMPANY_INFO.name} today.`,
         content: (
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <a
